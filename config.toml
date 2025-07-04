@@ -1,0 +1,10 @@
+[ai]
+model = "qwen2.5-coder:7b"
+
+[git]
+review-branch = "feature/kevin/1016/8626"
+dest-branch = "release/RC_20251016"
+
+[paths]
+repo-location = "/Users/kevintung/code/aibank-ms"
+output-dir = "outputs/"
