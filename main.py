@@ -13,25 +13,18 @@ def read_config():
 def main():
     config = read_config()
     output_log_dir = config["paths"]["output-dir"]
-    os.makedirs(output_log_dir)
+    try:
+        os.makedirs(output_log_dir)
+    except:
+        print("output dir already exists, skip creating...")
 
     # fetch content (git diff)
     # fetch -> pull -> then checkout a new branch for review -> rebase to dest_branch for related diffs only
-    review_branch = config["git"]["review-branch"]
-    dest_branch = config["git"]["dest-branch"]
-    repo_location = config["paths"]["repo-location"]
-    fetcher = GitDiffContentFetcher(repo_location, dest_branch, review_branch)
+    fetcher = GitDiffContentFetcher(config)
     content = fetcher.fetch_content_for_review()
 
     # construct llm and prompt for review
-    bot = OllamaReviewBot(
-        model=config["ai"]["model"],
-        language=config["general"]["language"],
-        content=content,
-        output_dir=config["paths"]["output-dir"],
-        dest_branch=dest_branch,
-        review_branch=review_branch,
-    )
+    bot = OllamaReviewBot(config=config, content=content)
     bot.do_review()
 
 

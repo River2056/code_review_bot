@@ -13,10 +13,11 @@ class ContentFetcher:
 
 class GitDiffContentFetcher(ContentFetcher):
 
-    def __init__(self, repo_location, dest_branch, review_branch):
-        self.repo_location = repo_location
-        self.dest_branch = dest_branch
-        self.review_branch = review_branch
+    def __init__(self, config):
+        self.config = config
+        self.repo_location = self.config["paths"]["repo-location"]
+        self.dest_branch = self.config["git"]["dest-branch"]
+        self.review_branch = self.config["git"]["review-branch"]
 
     def _run(self, *args):
         subprocess.run([*args])

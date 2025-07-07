@@ -5,6 +5,10 @@
 執行程式之後, 會將diff的內容餵給AI讓他code review, 並且不會馬上結束, 會進入QA環節 (questions to ask (type q to quit):)
 可以持續跟AI對話. 按q結束會將剛剛的內容輸出成log檔
 
+**注意!**
+由於此版本在獲取 diff 內容時會下`git reset --hard HEAD`, 記得執行前先把手上的 code 都 commit 一版, 或 `git stash`
+或者是再 clone 一個 repository 下來
+
 ### 安裝說明
 - 本機裝`Ollama`
 - 下載模型, 筆電建議使用`qwen2.5-coder`, 一般都用7b版本

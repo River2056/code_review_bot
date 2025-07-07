@@ -1,12 +1,12 @@
 [general]
-language = "java" # typescript
+language = "java"
 
 [ai]
 model = "qwen2.5-coder:7b"
 
 [git]
-review-branch = "feature/kevin/0724/8917"
-dest-branch = "release/RC_20250724"
+review-branch = "feature/kevin/1016/8626"
+dest-branch = "release/RC_20251016"
 
 [paths]
 repo-location = "/Users/kevintung/code/aibank-ms"
