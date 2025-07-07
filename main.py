@@ -12,6 +12,8 @@ def read_config():
 
 def main():
     config = read_config()
+    output_log_dir = config["paths"]["output-dir"]
+    os.makedirs(output_log_dir)
 
     # fetch content (git diff)
     # fetch -> pull -> then checkout a new branch for review -> rebase to dest_branch for related diffs only
