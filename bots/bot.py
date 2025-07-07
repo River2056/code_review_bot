@@ -90,6 +90,11 @@ class OllamaReviewBot(ReviewBot):
             "wt",
             encoding="utf8",
         ) as log_file:
+            # msgs
             for msg in self.msgs:
                 log_file.write(msg)
                 log_file.write("\n")
+
+            # git diff content
+            log_file.write(self.content)
+            log_file.write("\n")
