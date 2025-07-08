@@ -3,6 +3,7 @@ language = "java"
 
 [ai]
 model = "qwen2.5-coder:7b"
+num-ctx = 8192
 
 [git]
 review-branch = "feature/kevin/1016/8626"
