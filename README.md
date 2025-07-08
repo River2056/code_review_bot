@@ -22,3 +22,9 @@
     - `output-dir` AI 分析完程式不會立即結束, 按 q 結束程式會將剛剛的對話紀錄下來並輸出至這個目錄底下
 - 執行程式之前先跑一下 `uv sync` 將相關 dependency 抓下來
 - 執行`uv run main.py` (有用Justfile的同學可以直接`just`)
+
+### changelog
+2025-07-08:
+- 將 prompt 參數化, 新增了`prompt.md`
+- 追加 `config.toml` 參數設定 `num-ctx`
+
